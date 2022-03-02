@@ -1,9 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int print(int**edges,int n,int sv){          //sv=starting vertex
-       
-}
+void print(int**edges,int n,int sv,bool* visited) {          //sv=starting vertex
+     cout<<sv<<endl;
+     visited[sv] = true;
+     for(int i=0;i<n;i++){
+         if(i==sv){
+             continue;
+         }
+         if(edges[sv][i]==1){
+             if(visited[i]){
+                 continue;
+             }
+             print(edges,n,i,visited);
+         }
+    }
+}  
+
 
 int main(){
 
@@ -22,5 +35,9 @@ int main(){
         edges[f][s]=1;
         edges[s][f]=1;
         }
-        print(edges,n,0);
+        bool* visited=new bool[n];
+        for(int i=0;i<n;i++){
+            visited[i]=false;
+        }
+        print(edges,n,0,visited);
 }
