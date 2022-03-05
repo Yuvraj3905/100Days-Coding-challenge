@@ -6,6 +6,11 @@ int main(){
     while(t--){
         int x,y;
         cin >> x>>y;
-        if(x+y)
+        int z=x+y;
+        if(z%2==0){
+            cout << "Janmansh"<<endl;
+        }else{
+            cout << "Jay"<<endl;
+        }
     }
 }
